@@ -23,7 +23,7 @@ Resources:
             InstanceType: "t2.micro"
             AvailabilityZone: !Sub "${AWS::Region}b"
             Tenancy: "default"
-            SubnetId: "subnet-cac50cb7"
+            SubnetId: "subnet-04955db852ba76b60"
             EbsOptimized: false
             SecurityGroupIds: 
               - !Ref EC2SecurityGroup
