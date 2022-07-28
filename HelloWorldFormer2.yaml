@@ -1,11 +1,3 @@
-# Import properties for EC2SecurityGroup (AWS::EC2::SecurityGroup)
-# 
-#     GroupId: sg-01ba9723afd0b7b36
-# 
-# Import properties for EC2Instance (AWS::EC2::Instance)
-# 
-#     InstanceId: i-0106540905ae41c8c
-# 
 AWSTemplateFormatVersion: "2010-09-09"
 Metadata:
     Generator: "former2"
@@ -17,7 +9,7 @@ Resources:
         Properties:
             GroupDescription: "HelloWorldFormer2"
             GroupName: "HelloWorldFormer2"
-            VpcId: "vpc-0c3b5067"
+            VpcId: "vpc-02e1a3c73283efd1e"
             SecurityGroupEgress: 
               - 
                 CidrIp: "0.0.0.0/0"
@@ -27,7 +19,7 @@ Resources:
         DeletionPolicy: "Delete"
         Type: "AWS::EC2::Instance"
         Properties:
-            ImageId: "ami-f63b1193"
+            ImageId: "ami-97785bed"
             InstanceType: "t2.micro"
             AvailabilityZone: !Sub "${AWS::Region}b"
             Tenancy: "default"
