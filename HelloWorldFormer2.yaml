@@ -1,0 +1,52 @@
+# Import properties for EC2SecurityGroup (AWS::EC2::SecurityGroup)
+# 
+#     GroupId: sg-01ba9723afd0b7b36
+# 
+# Import properties for EC2Instance (AWS::EC2::Instance)
+# 
+#     InstanceId: i-0106540905ae41c8c
+# 
+AWSTemplateFormatVersion: "2010-09-09"
+Metadata:
+    Generator: "former2"
+Description: ""
+Resources:
+    EC2SecurityGroup:
+        DeletionPolicy: "Delete"
+        Type: "AWS::EC2::SecurityGroup"
+        Properties:
+            GroupDescription: "HelloWorldFormer2"
+            GroupName: "HelloWorldFormer2"
+            VpcId: "vpc-0c3b5067"
+            SecurityGroupEgress: 
+              - 
+                CidrIp: "0.0.0.0/0"
+                IpProtocol: "-1"
+
+    EC2Instance:
+        DeletionPolicy: "Delete"
+        Type: "AWS::EC2::Instance"
+        Properties:
+            ImageId: "ami-f63b1193"
+            InstanceType: "t2.micro"
+            AvailabilityZone: !Sub "${AWS::Region}b"
+            Tenancy: "default"
+            SubnetId: "subnet-cac50cb7"
+            EbsOptimized: false
+            SecurityGroupIds: 
+              - !Ref EC2SecurityGroup
+            SourceDestCheck: true
+            BlockDeviceMappings: 
+              - 
+                DeviceName: "/dev/xvda"
+                Ebs: 
+                    Encrypted: false
+                    VolumeSize: 8
+                    SnapshotId: "snap-0da722d3235fa8c7c"
+                    VolumeType: "gp2"
+                    DeleteOnTermination: true
+            HibernationOptions: 
+                Configured: false
+            EnclaveOptions: 
+                Enabled: false
+
